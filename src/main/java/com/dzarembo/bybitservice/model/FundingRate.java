@@ -11,4 +11,5 @@ public class FundingRate {
     private String symbol;
     private double fundingRate;
     private long nextFundingTime;
+    private int fundingIntervalHours; // новый параметр
 }
