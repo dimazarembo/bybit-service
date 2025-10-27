@@ -2,15 +2,16 @@ version: '3.9'
 
 services:
   bybit-service:
-    image: "bybit-service:dev"
+    image: dzarembo/bybit-service:latest
     container_name: bybit-service
     ports:
       - "8082:8082"
     environment:
       SERVER_PORT: 8082
+      SPRING_PROFILES_ACTIVE: prod
     restart: always
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:8081/actuator/health"]
+      test: ["CMD", "wget", "-qO-", "http://localhost:8082/actuator/health"]
       interval: 20s
       timeout: 5s
       retries: 5
